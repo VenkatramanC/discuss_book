@@ -1,7 +1,9 @@
  <div class="container"> 
-  <ol>
+  <ul>
     <li class="well">
       <%=question.question %>
+      
+      <%= link_to "Answer" , new_answer_path ,class: "btn btn-primary pull-right answer" %>
     </li> 
-  </ol>
+  </ul>
  </div>

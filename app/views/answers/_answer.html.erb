@@ -1,0 +1,9 @@
+<div class="container well">
+  <% if @answers.any? %>
+    <li>
+       <%= render @answers %>
+    </li>
+  <%  else %>
+    <%= link_to "Re_load" , new_question_path %>
+  <% end %>
+</div>
