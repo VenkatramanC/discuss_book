@@ -1,0 +1,9 @@
+<h2>Our Question</h2>
+  <% if @questions.any? %>
+    <li>
+       <%= render @questions %>
+    </li>
+  <%  else %>
+    <%= link_to "Choose a Question" , new_question_path %>
+  <% end %>
+
