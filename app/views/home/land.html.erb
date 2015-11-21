@@ -1,5 +1,10 @@
 <div class="container">
   <h1>Welcome To Mind-Talk</h1>
   <p>Here You can ask any Questions</p>
-  <%= link_to "Ask a Question" , new_question_path %>
+   <% if user_signed_in?%>
+    <%= link_to "Ask a Question" , new_question_path %>
+    <p>or</p>
+    <%= link_to "Give an Answer" , questions_path %> 
+    <% else %>
+    <%end%>
 </div>

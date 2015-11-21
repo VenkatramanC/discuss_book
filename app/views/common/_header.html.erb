@@ -1,5 +1,4 @@
-<header>
-    
+<header>  
   <nav class="navbar navbar-inverse">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -11,12 +10,16 @@
         </button>
         <a class="navbar-brand" href="/">Mind-Talk</a>
       </div>
-
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="#">Posts</a></li>
-          <li><a href="#">Contact</a></li>
-          <li><a href="#">Signout</a></li>
+          <% if user_signed_in?%>
+            <li><a href="#">Posts</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><%= link_to "signout" , destroy_user_session_path %></li>
+          <% else %>
+            <li><%= link_to "Log-In" ,new_user_session_path %></li>
+            <li><%= link_to "Sign-In" , new_user_registration_path %></li>
+          <% end %> 
         </ul>
       </div>
     </div>
