@@ -15,7 +15,7 @@
           <% if user_signed_in?%>
             <li><a href="#">Posts</a></li>
             <li><a href="#">Contact</a></li>
-            <li><%= link_to "signout" , destroy_user_session_path %></li>
+            <li><%= link_to "signout" , destroy_user_session_path ,method: :delete %></li>
           <% else %>
             <li><%= link_to "Log-In" ,new_user_session_path %></li>
             <li><%= link_to "Sign-In" , new_user_registration_path %></li>
