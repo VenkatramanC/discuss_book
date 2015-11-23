@@ -17,8 +17,7 @@ class AnswersController < ApplicationController
   
 
   def index
-   
-    @answer = Answer.all
+    @answer = @question.answers.all
   end
   
 
@@ -26,10 +25,30 @@ class AnswersController < ApplicationController
   end
   
   def edit
+    @answer = Answer.find(params[:id])
   end
 
-  def delete
-   
+  def update
+    @answer = Answer.find(params[:id])
+    @answer = @answer.update_attributes(user_answer_params)
+    redirect_to question_answers_path 
+
+
+
+  #   respond_to do |format|
+  #     if @user.update(user_params)
+  #      format.html { redirect_to @user, notice: 'User was successfully updated.' }
+  #     else
+  #     format.html { render action: "edit" }
+  #    end
+  # end
+
+  end
+
+  def destroy
+   @answer = Answer.find(params[:id])
+   @answer.destroy
+   redirect_to question_answers_path 
   end
 
 
@@ -41,5 +60,7 @@ class AnswersController < ApplicationController
   def fetch_question
     @question = Question.find(params[:question_id])
   end
+
+
 end
 

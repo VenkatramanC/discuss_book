@@ -1,1 +1,11 @@
-delete.html.erb
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+     <h3><%= @question.question %></h3>
+      <%= simple_form_for [@question , @answer] do |f|%>
+        <%= f.input :answer %>
+        <%= f.button :submit %>
+      <% end %>
+    </div>
+  </div>
+</div>
