@@ -13,7 +13,7 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
         <ul class="nav navbar-nav navbar-right">
           <% if user_signed_in?%>
-            <li><a href="#">Posts</a></li>
+            <li><%= link_to "Posts", questions_path %></li>
             <li><a href="#">Contact</a></li>
             <li><%= link_to "signout" , destroy_user_session_path ,method: :delete %></li>
           <% else %>

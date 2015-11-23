@@ -1,27 +1,35 @@
 class AnswersController < ApplicationController
   before_action :authenticate_user!
+  before_filter :fetch_question
+
   def new
     @answer = Answer.new
   end
 
   def create
-    @answer = Answer.new(user_answer_params)
+    @answer = @question.answers.new(user_answer_params)
     if @answer.save
-      redirect_to answer_path(@answer)
+      redirect_to question_answers_path(params[:question_id])
     else
       render 'new'
     end
   end
   
 
+  def index
+   
+    @answer = Answer.all
+  end
+  
+
   def show
-    @answer =Answer.all
   end
   
   def edit
   end
 
   def delete
+   
   end
 
 
@@ -30,4 +38,8 @@ class AnswersController < ApplicationController
     params.require(:answer).permit(:answer)
   end
 
+  def fetch_question
+    @question = Question.find(params[:question_id])
+  end
 end
+

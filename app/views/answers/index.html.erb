@@ -1,0 +1,13 @@
+  <% if @answer.any? %>
+    <li>
+       <%= render 'answers/answer' %>
+    </li>
+  <%  else %>
+    <%= link_to "Choose a Question" ,questions_path %>
+  <% end %>
+
+ 
+  
+
+ 
+  

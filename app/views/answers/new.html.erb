@@ -1,8 +1,22 @@
 <div class="container">
-
-  <h1>Your Answer</h1>
-  <%= simple_form_for @answer do |f| %>
+ <!-- to display question name here -->
+  <h3><%= @question.question%></h3>
+  <%= simple_form_for [@question, @answer] do |f| %>
     <%= f.input :answer %>
     <%= f.submit%>
   <% end %>
+
+  <h4>Answers  by different users</h4>
+
+   <ul>
+    <% @question.answers.each do|answer| %>
+  <li>
+     <%= answer.answer %>
+     <%= answer.created_at %>
+  </li>
+  <% end %>
+</ul>
+
+ <h3>If You think Its improper and You wanna ask a proper One</h3>
+  <%= link_to "Click Here to ask A Question" , new_question_path %>
 </div>
