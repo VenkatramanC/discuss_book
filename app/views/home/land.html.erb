@@ -1,12 +1,10 @@
-<div class="container">
-  <h1>Welcome To Mind-Talk</h1>
-  <p>Here You can ask any Questions</p>
+<div class="container text-center">
+  <h1 class= "text-center">Welcome To Mind-Talk</h1>
+  <h4>Here You can ask any Questions</h4>
    <% if user_signed_in?%>
-    <%= link_to "Ask a Question" , new_question_path %>
+    <p><%= link_to "Start a Blog" , new_question_path , class: "btn btn-primary" %></p>
     <p>or</p>
-    <%= link_to "Give an Answer" , questions_path %> 
+    <p><%= link_to "Reply to Blog" , questions_path , class: "btn btn-primary" %></p>
     <% else %>
     <%end%>
-
-   
 </div>

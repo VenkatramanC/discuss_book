@@ -1,8 +1,8 @@
 <div class="container">
-  <h1>Ask a Question</h1>
+  <h1>Ask Here</h1>
   <%= simple_form_for @question do |f| %>
     <%= f.input :question%>
-    <%= f.submit  %>
+    <%= f.submit  'Submit' %>
   <% end %>
 
    <h3><%= @question.question %></h3>
